@@ -1,0 +1,35 @@
+@baseUrl = http://localhost:5000
+
+### Все товары — 200
+GET {{baseUrl}}/api/products
+
+### Товар по ID — 200
+GET {{baseUrl}}/api/products/1
+
+### Создать товар — 201, ID вернётся в ответе
+POST {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "Pencil",
+  "price": 100
+}
+
+### Обновить товар — 204
+PUT {{baseUrl}}/api/products/1
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Notebook A4",
+  "price": 600
+}
+
+### Проверить изменение — 200
+GET {{baseUrl}}/api/products/1
+
+### Удалить товар — 204
+DELETE {{baseUrl}}/api/products/2
+
+### Проверить удаление — 404
+GET {{baseUrl}}/api/products/2
